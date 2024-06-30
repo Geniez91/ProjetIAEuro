@@ -1,5 +1,3 @@
-# Projet IA
-
 # Prédiction des Scores de Matchs de Football
 
 ## Algorithme de Machine Learning
