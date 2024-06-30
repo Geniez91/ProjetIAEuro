@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+tensorflow==2.15.0
+requests
+streamlit
+pydantic
+pandas
+numpy
+joblib
+typing
+datetime
+transformers
+scikit-learn
