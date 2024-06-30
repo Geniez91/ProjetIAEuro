@@ -11,3 +11,5 @@ typing
 datetime
 transformers
 scikit-learn
+matplotlib
+seaborn
