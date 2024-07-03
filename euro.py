@@ -53,6 +53,45 @@ features_list = ['HomeTeamName', 'AwayTeamName', 'Humidity', 'Temperature', 'Win
 st.title("Analyse et Prédiction des Scores de Matchs de Football")
 
 st.write("""
+## Étapes de Prétraitement
+- **Encodage des Variables Catégorielles** : Les noms des équipes sont encodés en utilisant `LabelEncoder`.
+- **Normalisation des Données** : Les caractéristiques numériques telles que l'humidité, la température et la vitesse du vent sont normalisées à l'aide de `StandardScaler`.
+- **Gestion des Valeurs Manquantes** : Les valeurs manquantes dans la colonne des noms des arbitres assistants sont remplacées par 'Unknown'.
+- **Conversion des Dates** : La colonne `DateandTimeCET` est convertie en type datetime pour faciliter les opérations de filtrage et de manipulation des dates.
+
+## Entraînement du Modèle
+1. Division des données en ensembles d'entraînement et de test.
+2. Entraînement du modèle `RandomForestRegressor` sur les données d'entraînement.
+3. Évaluation du modèle en utilisant l'erreur quadratique moyenne (MSE).
+
+## Algorithme de Machine Learning
+### RandomForestRegressor
+
+Nous utilisons `RandomForestRegressor` pour prédire les scores des matchs de football. Cet algorithme est basé sur les forêts aléatoires et offre plusieurs avantages :
+
+- **Robustesse** : En combinant plusieurs arbres de décision, il réduit la variance et améliore la précision.
+- **Réduction du Surapprentissage** : L'utilisation de bootstrap sampling et de la sélection aléatoire des caractéristiques aide à éviter le surapprentissage.
+- **Précision** : Il est souvent plus précis que les arbres de décision individuels pour des jeux de données complexes.
+
+## Explication MSE
+
+Pour interpréter cette valeur de MSE, considérons quelques points clés :
+
+### Différence au Carré :
+
+La MSE calcule la moyenne des carrés des différences entre les valeurs réelles et les valeurs prédites. Donc, une MSE de 2.82 signifie que les différences entre les scores réels et les scores prédits, une fois mises au carré, ont une moyenne de 2.82.
+
+### Erreur Moyenne :
+
+Pour comprendre l'erreur en termes de différence absolue moyenne, nous pouvons prendre la racine carrée de la MSE. Cette valeur est connue sous le nom de Root Mean Squared Error (RMSE).
+
+Dans ce cas :
+\[ \text{RMSE} = \sqrt{2.82} \approx 1.68 \]
+
+Cela signifie que, en moyenne, la prédiction de votre modèle est à environ 1.68 unités du score réel.
+""")
+
+st.write("""
 ### Description des Données
 """)
 st.write(data.head())
